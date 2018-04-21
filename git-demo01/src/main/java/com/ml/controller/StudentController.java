@@ -9,14 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ml.service.StudentService;
 
 @Controller
-@RequestMapping("/student")
+@RequestMapping("/student1")
 public class StudentController {
 	@Autowired
 	private StudentService ss;
 	
-	@RequestMapping("/all")
+	@RequestMapping("/all1")
+//	@ResponseBody
 	public String selectAll(Map<String,Object> map) {
+		System.out.println("我是StudentController类");
 		map.put("list", ss.selectAll());
+		System.out.println("bind");
 		return "index";
 	}
 }

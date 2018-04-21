@@ -16,6 +16,7 @@ public class StudentServiceImpl implements StudentService{
 	
 	@Override
 	public List<Student> selectAll() {
+		System.out.println("this is Service selectAll method..."+sm.selectAll().size());
 		return sm.selectAll();
 	}
 
@@ -39,5 +40,9 @@ public class StudentServiceImpl implements StudentService{
 	public int updateByPrimaryKeySelective(Student stu) {
 		return sm.updateByPrimaryKeySelective(stu);
 	}
-
+	
+	public static void main(String[] args) {
+		List<Student> list = new StudentServiceImpl().selectAll();
+		System.out.println(list.size());
+	}
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>修改学生信息</h1>
+    <form action="updateObj" method="post">
+        <table border="1">
+            <tr>
+                <td>学生编号</td>
+                <td>
+                    <input type="hidden" th:value="${stu.id}" name="id" >
+                    <input disabled="disabled" th:value="${stu.id}">
+                </td>
+            </tr>
+            <tr>
+                <td>学生姓名</td>
+                <td>
+                    <input th:value="${stu.name}" name="name">
+                </td>
+            </tr>
+            <tr>
+                <td>学生性别</td>
+                <td>
+                    <select th:field="*{stu}" name="sex">
+                        <option th:each="sex,iterStat : ${sexs}" th:value="${sex}" th:text="${stu.sex}">男</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>学生生日</td>
+                <td>
+                    <input type="date" th:value="${stu.brithday}" name="brithday">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="修改学生">
+                    <input type="button" onclick="javascript:history.back();" th:value="返回">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

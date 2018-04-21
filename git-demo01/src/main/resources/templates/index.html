@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div{
+            width: 100%;
+            border-color: red;
+            margin: auto;
+        }
+        table{
+            width: 60%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>学生的信息</h1>
+        <h6><a href="../add.html">添加学生信息</a></h6>
+        <table border="1">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>生日</th>
+                <th>操作</th>
+            </tr>
+            <tr th:each="stu,iterStat : ${list}">
+                <td th:text="${stu.id}"></td>
+                <td th:text="${stu.name}"></td>
+                <td th:text="${stu.sex}"></td>
+                <td th:text="${stu.brithday}"></td>
+                <td>
+                    <a th:href="@{'queryObj?id='+${stu.id}}">修改</a>
+                    <a th:href="@{'removeObj?id='+${stu.id}}">移除</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
